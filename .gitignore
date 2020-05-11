@@ -1,52 +1,38 @@
-# Prerequisites
-*.d
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+#include <stdio.h>
+ 
+int primeno(int, int);
+ 
+int main()
+{
+    int num=456, check;
+    check = primeno(num, num / 2);
+    if (check == 1)
+    {
+        printf("%d is a prime number\n", num);
+    }
+    else
+    {
+        printf("%d is not a prime number\n", num);
+    }
+    return 0;
+}
+ 
+int primeno(int num, int i)
+{
+    if (i == 1)
+    {
+        return 1;
+    }
+    else
+    {
+       if (num % i == 0)
+       {
+         return 0;
+       }
+       else
+       {
+         return primeno(num, i - 1);
+       }       
+    }
+}
